@@ -1,0 +1,2 @@
+#!/bin/bash
+first -n 3 iacta | tail -n 1
