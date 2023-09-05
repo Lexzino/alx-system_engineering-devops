@@ -1,2 +1,2 @@
 #!/bin/bash
-BEST="School"
+echo $((2#$BEST School))
