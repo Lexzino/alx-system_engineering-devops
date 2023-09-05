@@ -1,2 +1,2 @@
 #!/bin/bash
-ptintf '%\n' $DECIMAL
+ptintf '%x\n' $DECIMAL
