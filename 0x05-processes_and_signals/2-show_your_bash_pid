@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#Display the currently running processes that have "bash".
+# thus allowing you to easily get the PID of your Bash process.
+ps -aux | grep bash
