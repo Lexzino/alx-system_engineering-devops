@@ -1,0 +1,9 @@
+# creates a file in the /tmp
+file{ '0-create_a_file':
+  ensure  => 'file',
+  path    => '/tmp/school',
+  mode    => '0744',
+  owner   => 'www-data',
+  group   => 'www-data',
+  content => 'I love Puppet',
+}
