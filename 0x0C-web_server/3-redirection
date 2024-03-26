@@ -1,21 +1,16 @@
 #!/usr/bin/env bash
-# Configures an Nginx server so that /redirect_me redirects to another page.
-# The redirection is configured as a "301 Moved Permanently"
+# Script that configures a new Ubuntu machine to Perform a 301-redirection
 
-apt-get update
-apt-get install -y nginx
+# Upadate Packages before Installations
+sudo apt-get update
+sudo apt-get install -y nginx
 
-mkdir /etc/nginx/html
-touch /etc/nginx/html/index.html
-echo "Holberton School" > /etc/nginx/html/index.html
-printf %s "server {
-    listen 80;
-    listen [::]:80 default_server;
-    root   /etc/nginx/html;
-    index  index.html index.htm;
-    location /redirect_me {
-        return 301 http://cuberule.com/;
-    }
-}" > /etc/nginx/sites-available/default
+# Create index.html page
+echo "Hello World!" | sudo tee /var/www/html/index.html
 
-service nginx restart
+# Perform  301 Redirection
+string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/Lexzino permanent;"
+sudo sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-enabled/default
+
+# Restart Nginx service
+sudo service nginx restart
